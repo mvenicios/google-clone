@@ -6,12 +6,12 @@ import { BsFillMicFill } from "react-icons/bs";
 
 export default function HomeSearch() {
   const router = useRouter();
-  const [input, setInput] = useState("");
+  const [inputs, setInput] = useState("");
   const [randomSearchLoading, setRandomSearchLoading] = useState(false);
   function handleSubmit(e) {
     e.preventDefault();
-    if (!input.trim()) return;
-    router.push(`/search/web?searchTerm=${input}`);
+    if (!inputs.trim()) return;
+    router.push(`/search/web?searchTerm=${inputs}`);
   }
 
   async function randomSearch() {
@@ -32,10 +32,10 @@ export default function HomeSearch() {
       >
         <AiOutlineSearch className="text-xl text-gray-500 mr-3" />
         <input
-          value={input}
           onChange={(e) => setInput(e.target.value)}
           type="text"
           className="flex-grow focus:outline-none"
+          value={inputs}
         />
         <BsFillMicFill className="text-lg" />
       </form>
